@@ -1,8 +1,6 @@
 ﻿using Logic;
 using System;
-using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
