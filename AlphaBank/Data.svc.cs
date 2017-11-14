@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Logic;
+using Model;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ namespace AlphaBank
 {
     public class Data : IData
     {
+        private readonly GetData _data = new GetData();
+
         public bool TestConnection()
         {
             try
@@ -19,27 +22,9 @@ namespace AlphaBank
             }
         }
 
-        public async Task<DummyObj> GetDummyInfo()
+        public async Task<DummyObj> GetCustomerInfo(string customerId)
         {
-            return await Task<DummyObj>.Factory.StartNew(() =>
-            {
-                try
-                {
-                    return new DummyObj
-                    {
-                        TransactionId = Guid.NewGuid().ToString(),
-                        CustomerName = "Pedro",
-                        CustomerLastName = "El Escamoso",
-                        LocatorId = GetVoucherNumber(),
-                        Valid = true,
-                        validUntil = DateTime.Now.AddDays(1)
-                    };
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-            });
+            return await _data.GetCustomerInfo(customerId);
         }
 
         private string GetVoucherNumber(int length = 10)

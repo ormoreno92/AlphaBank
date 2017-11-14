@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:wservicewsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:wservicewsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:wservicewsdl">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="get_key_base_64Request">
+    <wsdl:part name="nombre" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="get_key_base_64Response">
+    <wsdl:part name="nombre" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="prueba_conexionRequest">
+    <wsdl:part name="request" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="prueba_conexionResponse">
+    <wsdl:part name="response" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificar_archivoRequest">
+    <wsdl:part name="request" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificar_archivoResponse">
+    <wsdl:part name="response" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="borrar_archivoRequest">
+    <wsdl:part name="request" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="borrar_archivoResponse">
+    <wsdl:part name="response" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="wservicewsdlPortType">
+    <wsdl:operation name="get_key_base_64">
+      <wsdl:input message="tns:get_key_base_64Request" />
+      <wsdl:output message="tns:get_key_base_64Response" />
+    </wsdl:operation>
+    <wsdl:operation name="prueba_conexion">
+      <wsdl:input message="tns:prueba_conexionRequest" />
+      <wsdl:output message="tns:prueba_conexionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="verificar_archivo">
+      <wsdl:input message="tns:verificar_archivoRequest" />
+      <wsdl:output message="tns:verificar_archivoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="borrar_archivo">
+      <wsdl:input message="tns:borrar_archivoRequest" />
+      <wsdl:output message="tns:borrar_archivoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wservicewsdlBinding" type="tns:wservicewsdlPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="get_key_base_64">
+      <soap:operation soapAction="https://bankrepublic.fundacionunipanamericana.com/webService/index.php/get_key_base_64" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="prueba_conexion">
+      <soap:operation soapAction="https://bankrepublic.fundacionunipanamericana.com/webService/index.php/prueba_conexion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificar_archivo">
+      <soap:operation soapAction="https://bankrepublic.fundacionunipanamericana.com/webService/index.php/verificar_archivo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borrar_archivo">
+      <soap:operation soapAction="https://bankrepublic.fundacionunipanamericana.com/webService/index.php/borrar_archivo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="../WebService/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wservicewsdl">
+    <wsdl:port name="wservicewsdlPort" binding="tns:wservicewsdlBinding">
+      <soap:address location="https://bankrepublic.fundacionunipanamericana.com:443/webService/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

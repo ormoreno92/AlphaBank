@@ -8,11 +8,12 @@ namespace Model
 {
     public class DummyObj
     {
-        public string TransactionId { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerLastName { get; set; }
-        public bool Valid { get; set; }
-        public DateTime validUntil { get; set; }
-        public string LocatorId { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string primer_apellido { get; set; }
+        public string segundo_apellido { get; set; }
+        public string identificacion { get; set; }
+        public DateTime fec_cre { get; set; }
     }
 }
+

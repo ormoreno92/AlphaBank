@@ -15,5 +15,6 @@ namespace Model
         public string entity_PrivateKey { get; set; }
         public string entity_user { get; set; }
         public string entity_password { get; set; }
+        public string entity_adminKey { get; set; }
     }
 }

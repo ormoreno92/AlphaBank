@@ -13,9 +13,9 @@ namespace AlphaBank
            BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json)]
         bool TestConnection();
 
-        [OperationContract(Name = "GetDummyInfo")]
-        [WebGet(UriTemplate = "GetDummyInfo", RequestFormat = WebMessageFormat.Json,
+        [OperationContract(Name = "GetCustomerInfo")]
+        [WebGet(UriTemplate = "GetCustomerInfo/{customerId}", RequestFormat = WebMessageFormat.Json,
            BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json)]
-        Task<DummyObj> GetDummyInfo();
+        Task<DummyObj> GetCustomerInfo(string customerId);
     }
 }
